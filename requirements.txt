@@ -1,0 +1,4 @@
+newsapi-python
+google-generativeai
+schedule
+python-dotenv
