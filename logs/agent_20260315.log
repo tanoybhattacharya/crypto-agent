@@ -11,3 +11,231 @@ Please copy .env.example to .env and fill in your values.
 2026-03-15 15:21:19,710 [INFO] news_fetcher: Fetching news for: XRP
 2026-03-15 15:21:44,961 [ERROR] news_fetcher: Error fetching news for XRP: {'status': 'error', 'code': 'apiKeyInvalid', 'message': 'Your API key is invalid or incorrect. Check your key, or go to https://newsapi.org to create a free API key.'}
 2026-03-15 15:21:44,964 [INFO] news_fetcher: Fetching news for: Ethereum
+2026-03-15 15:40:46,777 [INFO] scheduler: ============================================================
+2026-03-15 15:40:46,777 [INFO] scheduler: 📅 Crypto AI Scheduler started
+2026-03-15 15:40:46,777 [INFO] scheduler:    Daily run time : 09:00 (local time)
+2026-03-15 15:40:46,777 [INFO] scheduler:    Coins tracked  : XRP, Ethereum, Bitcoin, Solana
+2026-03-15 15:40:46,777 [INFO] scheduler:    Report sent to : recipient@example.com
+2026-03-15 15:40:46,777 [INFO] scheduler:    Waiting for scheduled time... (Ctrl+C to stop)
+2026-03-15 15:40:46,777 [INFO] scheduler: ============================================================
+2026-03-15 15:40:46,778 [INFO] scheduler: ▶️  Running immediately on startup for verification...
+2026-03-15 15:40:46,778 [INFO] agent: ============================================================
+2026-03-15 15:40:46,778 [INFO] agent: 🚀 Crypto AI Agent — Starting run at 2026-03-15 15:40:46
+2026-03-15 15:40:46,778 [INFO] agent: ============================================================
+2026-03-15 15:40:46,778 [INFO] agent: ✅ Config loaded | Coins: XRP, Ethereum, Bitcoin, Solana | Recipient: recipient@example.com
+2026-03-15 15:40:46,778 [INFO] agent: 📰 Step 1/3 — Fetching latest news...
+2026-03-15 15:40:46,778 [INFO] news_fetcher: Fetching news for: XRP
+2026-03-15 15:40:47,405 [ERROR] news_fetcher: Error fetching news for XRP: {'status': 'error', 'code': 'apiKeyInvalid', 'message': 'Your API key is invalid or incorrect. Check your key, or go to https://newsapi.org to create a free API key.'}
+2026-03-15 15:40:47,407 [INFO] news_fetcher: Fetching news for: Ethereum
+2026-03-15 15:40:53,194 [ERROR] news_fetcher: Error fetching news for Ethereum: {'status': 'error', 'code': 'apiKeyInvalid', 'message': 'Your API key is invalid or incorrect. Check your key, or go to https://newsapi.org to create a free API key.'}
+2026-03-15 15:40:53,197 [INFO] news_fetcher: Fetching news for: Bitcoin
+2026-03-15 15:40:53,797 [ERROR] news_fetcher: Error fetching news for Bitcoin: {'status': 'error', 'code': 'apiKeyInvalid', 'message': 'Your API key is invalid or incorrect. Check your key, or go to https://newsapi.org to create a free API key.'}
+2026-03-15 15:40:53,800 [INFO] news_fetcher: Fetching news for: Solana
+2026-03-15 15:40:54,661 [ERROR] news_fetcher: Error fetching news for Solana: {'status': 'error', 'code': 'apiKeyInvalid', 'message': 'Your API key is invalid or incorrect. Check your key, or go to https://newsapi.org to create a free API key.'}
+2026-03-15 15:40:54,666 [INFO] agent:    XRP: 1 article(s) found
+2026-03-15 15:40:54,666 [INFO] agent:    Ethereum: 1 article(s) found
+2026-03-15 15:40:54,667 [INFO] agent:    Bitcoin: 1 article(s) found
+2026-03-15 15:40:54,667 [INFO] agent:    Solana: 1 article(s) found
+2026-03-15 15:40:54,667 [INFO] agent: 🤖 Step 2/3 — Generating AI recommendations via Gemini...
+2026-03-15 15:40:54,668 [INFO] ai_analyzer: Sending news to Gemini for analysis...
+2026-03-15 15:40:54,805 [ERROR] ai_analyzer: Gemini API error: 400 API key not valid. Please pass a valid API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key not valid. Please pass a valid API key."
+]
+2026-03-15 15:40:54,805 [INFO] agent:    Recommendation length: 314 chars
+2026-03-15 15:40:54,805 [INFO] agent: 📧 Step 3/3 — Sending email to recipient@example.com...
+2026-03-15 15:40:54,806 [INFO] email_sender: Connecting to Gmail SMTP...
+2026-03-15 15:40:54,936 [ERROR] email_sender: ❌ SMTP Authentication failed. Check your SMTP_EMAIL and SMTP_APP_PASSWORD in .env
+2026-03-15 15:40:54,936 [ERROR] agent: ❌ Run finished with errors in 8.2s
+2026-03-15 15:40:54,937 [INFO] scheduler: ✅ Startup run complete. Next run scheduled at 09:00 daily.
+2026-03-15 17:34:02,544 [INFO] agent: ============================================================
+2026-03-15 17:34:02,544 [INFO] agent: 🚀 Crypto AI Agent — Starting run at 2026-03-15 17:34:02
+2026-03-15 17:34:02,545 [INFO] agent: ============================================================
+2026-03-15 17:34:02,545 [INFO] agent: ✅ Config loaded | Coins: XRP, Ethereum, Bitcoin, Solana | Recipient: recipient@example.com
+2026-03-15 17:34:02,545 [INFO] agent: 📰 Step 1/3 — Fetching latest news...
+2026-03-15 17:34:02,545 [INFO] news_fetcher: Fetching news for: XRP
+2026-03-15 17:34:03,710 [ERROR] news_fetcher: Error fetching news for XRP: {'status': 'error', 'code': 'apiKeyInvalid', 'message': 'Your API key is invalid or incorrect. Check your key, or go to https://newsapi.org to create a free API key.'}
+2026-03-15 17:34:03,713 [INFO] news_fetcher: Fetching news for: Ethereum
+2026-03-15 17:34:05,007 [ERROR] news_fetcher: Error fetching news for Ethereum: {'status': 'error', 'code': 'apiKeyInvalid', 'message': 'Your API key is invalid or incorrect. Check your key, or go to https://newsapi.org to create a free API key.'}
+2026-03-15 17:34:05,011 [INFO] news_fetcher: Fetching news for: Bitcoin
+2026-03-15 17:34:05,689 [ERROR] news_fetcher: Error fetching news for Bitcoin: {'status': 'error', 'code': 'apiKeyInvalid', 'message': 'Your API key is invalid or incorrect. Check your key, or go to https://newsapi.org to create a free API key.'}
+2026-03-15 17:34:05,693 [INFO] news_fetcher: Fetching news for: Solana
+2026-03-15 17:34:06,308 [ERROR] news_fetcher: Error fetching news for Solana: {'status': 'error', 'code': 'apiKeyInvalid', 'message': 'Your API key is invalid or incorrect. Check your key, or go to https://newsapi.org to create a free API key.'}
+2026-03-15 17:34:06,310 [INFO] agent:    XRP: 1 article(s) found
+2026-03-15 17:34:06,310 [INFO] agent:    Ethereum: 1 article(s) found
+2026-03-15 17:34:06,310 [INFO] agent:    Bitcoin: 1 article(s) found
+2026-03-15 17:34:06,310 [INFO] agent:    Solana: 1 article(s) found
+2026-03-15 17:34:06,311 [INFO] agent: 🤖 Step 2/3 — Generating AI recommendations via Gemini...
+2026-03-15 17:34:06,311 [INFO] ai_analyzer: Sending news to Gemini for analysis...
+2026-03-15 17:34:06,476 [ERROR] ai_analyzer: Gemini API error: 400 API key not valid. Please pass a valid API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key not valid. Please pass a valid API key."
+]
+2026-03-15 17:34:06,476 [INFO] agent:    Recommendation length: 314 chars
+2026-03-15 17:34:06,477 [INFO] agent: 📧 Step 3/3 — Sending email to recipient@example.com...
+2026-03-15 17:34:06,477 [INFO] email_sender: Connecting to Gmail SMTP...
+2026-03-15 17:34:06,583 [ERROR] email_sender: ❌ SMTP Authentication failed. Check your SMTP_EMAIL and SMTP_APP_PASSWORD in .env
+2026-03-15 17:34:06,583 [ERROR] agent: ❌ Run finished with errors in 4.0s
+2026-03-15 17:36:13,135 [INFO] agent: ============================================================
+2026-03-15 17:36:13,136 [INFO] agent: 🚀 Crypto AI Agent — Starting run at 2026-03-15 17:36:13
+2026-03-15 17:36:13,136 [INFO] agent: ============================================================
+2026-03-15 17:36:13,137 [INFO] agent: ✅ Config loaded | Coins: XRP, Ethereum, Bitcoin, Solana | Recipient: recipient@example.com
+2026-03-15 17:36:13,137 [INFO] agent: 📰 Step 1/3 — Fetching latest news...
+2026-03-15 17:36:13,137 [INFO] news_fetcher: Fetching news for: XRP
+2026-03-15 17:36:14,306 [ERROR] news_fetcher: Error fetching news for XRP: {'status': 'error', 'code': 'apiKeyInvalid', 'message': 'Your API key is invalid or incorrect. Check your key, or go to https://newsapi.org to create a free API key.'}
+2026-03-15 17:36:14,307 [INFO] news_fetcher: Fetching news for: Ethereum
+2026-03-15 17:36:15,312 [ERROR] news_fetcher: Error fetching news for Ethereum: {'status': 'error', 'code': 'apiKeyInvalid', 'message': 'Your API key is invalid or incorrect. Check your key, or go to https://newsapi.org to create a free API key.'}
+2026-03-15 17:36:15,313 [INFO] news_fetcher: Fetching news for: Bitcoin
+2026-03-15 17:36:16,208 [ERROR] news_fetcher: Error fetching news for Bitcoin: {'status': 'error', 'code': 'apiKeyInvalid', 'message': 'Your API key is invalid or incorrect. Check your key, or go to https://newsapi.org to create a free API key.'}
+2026-03-15 17:36:16,209 [INFO] news_fetcher: Fetching news for: Solana
+2026-03-15 17:36:57,954 [ERROR] news_fetcher: Error fetching news for Solana: HTTPSConnectionPool(host='newsapi.org', port=443): Read timed out. (read timeout=30)
+2026-03-15 17:36:57,954 [INFO] agent:    XRP: 1 article(s) found
+2026-03-15 17:36:57,955 [INFO] agent:    Ethereum: 1 article(s) found
+2026-03-15 17:36:57,956 [INFO] agent:    Bitcoin: 1 article(s) found
+2026-03-15 17:36:57,956 [INFO] agent:    Solana: 1 article(s) found
+2026-03-15 17:36:57,957 [INFO] agent: 🤖 Step 2/3 — Generating AI recommendations via Gemini...
+2026-03-15 17:36:57,958 [INFO] ai_analyzer: Sending news to Gemini for analysis...
+2026-03-15 17:36:58,054 [ERROR] ai_analyzer: Gemini API error: 400 API key not valid. Please pass a valid API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key not valid. Please pass a valid API key."
+]
+2026-03-15 17:36:58,055 [INFO] agent:    Recommendation length: 314 chars
+2026-03-15 17:36:58,055 [INFO] agent: 📧 Step 3/3 — Sending email to recipient@example.com...
+2026-03-15 17:36:58,056 [INFO] email_sender: Connecting to Gmail SMTP...
+2026-03-15 17:36:58,179 [ERROR] email_sender: ❌ SMTP Authentication failed. Check your SMTP_EMAIL and SMTP_APP_PASSWORD in .env
+2026-03-15 17:36:58,180 [ERROR] agent: ❌ Run finished with errors in 45.0s
+2026-03-15 17:38:29,814 [INFO] agent: ============================================================
+2026-03-15 17:38:29,814 [INFO] agent: 🚀 Crypto AI Agent — Starting run at 2026-03-15 17:38:29
+2026-03-15 17:38:29,814 [INFO] agent: ============================================================
+2026-03-15 17:38:29,815 [INFO] agent: ✅ Config loaded | Coins: XRP, Ethereum, Bitcoin, Solana | Recipient: piyali2903@gmail.com
+2026-03-15 17:38:29,815 [INFO] agent: 📰 Step 1/3 — Fetching latest news...
+2026-03-15 17:38:29,815 [INFO] news_fetcher: Fetching news for: XRP
+2026-03-15 17:38:30,664 [INFO] news_fetcher: Fetching news for: Ethereum
+2026-03-15 17:39:02,117 [ERROR] news_fetcher: Error fetching news for Ethereum: HTTPSConnectionPool(host='newsapi.org', port=443): Read timed out. (read timeout=30)
+2026-03-15 17:39:02,118 [INFO] news_fetcher: Fetching news for: Bitcoin
+2026-03-15 17:39:35,589 [ERROR] news_fetcher: Error fetching news for Bitcoin: HTTPSConnectionPool(host='newsapi.org', port=443): Read timed out. (read timeout=30)
+2026-03-15 17:39:35,590 [INFO] news_fetcher: Fetching news for: Solana
+2026-03-15 17:39:41,695 [INFO] agent:    XRP: 1 article(s) found
+2026-03-15 17:39:41,695 [INFO] agent:    Ethereum: 1 article(s) found
+2026-03-15 17:39:41,695 [INFO] agent:    Bitcoin: 1 article(s) found
+2026-03-15 17:39:41,696 [INFO] agent:    Solana: 3 article(s) found
+2026-03-15 17:39:41,696 [INFO] agent: 🤖 Step 2/3 — Generating AI recommendations via Gemini...
+2026-03-15 17:39:41,696 [INFO] ai_analyzer: Sending news to Gemini for analysis...
+2026-03-15 17:39:41,827 [ERROR] ai_analyzer: Gemini API error: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2026-03-15 17:39:41,827 [INFO] agent:    Recommendation length: 243 chars
+2026-03-15 17:39:41,827 [INFO] agent: 📧 Step 3/3 — Sending email to piyali2903@gmail.com...
+2026-03-15 17:39:41,828 [INFO] email_sender: Connecting to Gmail SMTP...
+2026-03-15 17:39:43,314 [INFO] email_sender: ✅ Email sent successfully to piyali2903@gmail.com
+2026-03-15 17:39:43,315 [INFO] agent: ✅ Run completed successfully in 73.5s
+2026-03-15 17:40:59,196 [INFO] agent: ============================================================
+2026-03-15 17:40:59,196 [INFO] agent: 🚀 Crypto AI Agent — Starting run at 2026-03-15 17:40:59
+2026-03-15 17:40:59,196 [INFO] agent: ============================================================
+2026-03-15 17:40:59,197 [INFO] agent: ✅ Config loaded | Coins: XRP, Ethereum, Bitcoin, Solana | Recipient: piyali2903@gmail.com
+2026-03-15 17:40:59,197 [INFO] agent: 📰 Step 1/3 — Fetching latest news...
+2026-03-15 17:40:59,197 [INFO] news_fetcher: Fetching news for: XRP
+2026-03-15 17:40:59,824 [INFO] news_fetcher: Fetching news for: Ethereum
+2026-03-15 17:41:00,459 [INFO] news_fetcher: Fetching news for: Bitcoin
+2026-03-15 17:41:04,959 [INFO] news_fetcher: Fetching news for: Solana
+2026-03-15 17:41:05,565 [INFO] agent:    XRP: 1 article(s) found
+2026-03-15 17:41:05,565 [INFO] agent:    Ethereum: 5 article(s) found
+2026-03-15 17:41:05,566 [INFO] agent:    Bitcoin: 5 article(s) found
+2026-03-15 17:41:05,566 [INFO] agent:    Solana: 3 article(s) found
+2026-03-15 17:41:05,566 [INFO] agent: 🤖 Step 2/3 — Generating AI recommendations via Gemini...
+2026-03-15 17:41:05,567 [INFO] ai_analyzer: Sending news to Gemini for analysis...
+2026-03-15 17:41:05,687 [ERROR] ai_analyzer: Gemini API error: 404 models/gemini-1.5-flash-latest is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2026-03-15 17:41:05,720 [INFO] agent:    Recommendation length: 250 chars
+2026-03-15 17:41:05,720 [INFO] agent: 📧 Step 3/3 — Sending email to piyali2903@gmail.com...
+2026-03-15 17:41:05,748 [INFO] email_sender: Connecting to Gmail SMTP...
+2026-03-15 17:41:07,008 [INFO] email_sender: ✅ Email sent successfully to piyali2903@gmail.com
+2026-03-15 17:41:07,008 [INFO] agent: ✅ Run completed successfully in 7.8s
+2026-03-15 17:47:20,812 [INFO] agent: ============================================================
+2026-03-15 17:47:20,812 [INFO] agent: 🚀 Crypto AI Agent — Starting run at 2026-03-15 17:47:20
+2026-03-15 17:47:20,812 [INFO] agent: ============================================================
+2026-03-15 17:47:20,813 [INFO] agent: ✅ Config loaded | Coins: XRP | Recipient: piyali2903@gmail.com
+2026-03-15 17:47:20,813 [INFO] agent: 📰 Step 1/3 — Fetching latest news...
+2026-03-15 17:47:20,813 [INFO] news_fetcher: Fetching news for: XRP
+2026-03-15 17:47:21,852 [INFO] agent:    XRP: 1 article(s) found
+2026-03-15 17:47:21,852 [INFO] agent: 🤖 Step 2/3 — Generating AI recommendations via Gemini...
+2026-03-15 17:47:21,853 [INFO] ai_analyzer: Sending news to Gemini for analysis...
+2026-03-15 17:47:21,990 [ERROR] ai_analyzer: Gemini API error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+Please retry in 38.036778639s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+  quota_id: "GenerateContentInputTokensPerModelPerMinute-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+, retry_delay {
+  seconds: 38
+}
+]
+2026-03-15 17:47:21,991 [INFO] agent:    Recommendation length: 1828 chars
+2026-03-15 17:47:21,991 [INFO] agent: 📧 Step 3/3 — Sending email to piyali2903@gmail.com...
+2026-03-15 17:47:21,992 [INFO] email_sender: Connecting to Gmail SMTP...
+2026-03-15 17:47:23,185 [INFO] email_sender: ✅ Email sent successfully to piyali2903@gmail.com
+2026-03-15 17:47:23,187 [INFO] agent: ✅ Run completed successfully in 2.4s
+2026-03-15 17:49:35,263 [INFO] agent: ============================================================
+2026-03-15 17:49:35,263 [INFO] agent: 🚀 Crypto AI Agent — Starting run at 2026-03-15 17:49:35
+2026-03-15 17:49:35,264 [INFO] agent: ============================================================
+2026-03-15 17:49:35,264 [INFO] agent: ✅ Config loaded | Coins: XRP | Recipient: piyali2903@gmail.com
+2026-03-15 17:49:35,264 [INFO] agent: 📰 Step 1/3 — Fetching latest news...
+2026-03-15 17:49:35,265 [INFO] news_fetcher: Fetching news for: XRP
+2026-03-15 17:49:35,968 [INFO] agent:    XRP: 1 article(s) found
+2026-03-15 17:49:35,969 [INFO] agent: 🤖 Step 2/3 — Generating AI recommendations via Gemini...
+2026-03-15 17:49:35,970 [INFO] ai_analyzer: Sending news to Gemini for analysis...
+2026-03-15 17:49:39,290 [INFO] agent:    Recommendation length: 786 chars
+2026-03-15 17:49:39,291 [INFO] agent: 📧 Step 3/3 — Sending email to piyali2903@gmail.com...
+2026-03-15 17:49:39,292 [INFO] email_sender: Connecting to Gmail SMTP...
+2026-03-15 17:49:40,474 [INFO] email_sender: ✅ Email sent successfully to piyali2903@gmail.com
+2026-03-15 17:49:40,475 [INFO] agent: ✅ Run completed successfully in 5.2s

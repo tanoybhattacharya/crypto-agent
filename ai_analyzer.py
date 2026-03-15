@@ -60,7 +60,7 @@ def analyze(news_data: dict[str, list[dict]], gemini_api_key: str) -> str:
     Analyze news for all coins and return a formatted recommendation string.
     """
     genai.configure(api_key=gemini_api_key)
-    model = genai.GenerativeModel("gemini-1.5-flash")
+    model = genai.GenerativeModel("gemini-2.5-flash")
 
     news_block = build_news_block(news_data)
     prompt = PROMPT_TEMPLATE.format(news_block=news_block)
