@@ -19,13 +19,15 @@ def fetch_news(coins: list[str], api_key: str, articles_per_coin: int = 5) -> di
     results = {}
 
     # Look back 24 hours
-    from_date = (datetime.utcnow() - timedelta(days=1)).strftime("%Y-%m-%dT%H:%M:%S")
+    from_date = (datetime.now() - timedelta(days=1)).strftime("%Y-%m-%dT%H:%M:%S")
 
     for coin in coins:
         try:
             logger.info(f"Fetching news for: {coin}")
+            # Improved query to reduce noise
+            query = f'"{coin}" AND (crypto OR cryptocurrency OR blockchain)'
             response = client.get_everything(
-                q=f"{coin} crypto OR cryptocurrency OR blockchain",
+                q=query,
                 from_param=from_date,
                 language="en",
                 sort_by="relevancy",

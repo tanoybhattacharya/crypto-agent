@@ -127,7 +127,7 @@ def build_html_email(coins: list[str], recommendation_text: str, date_str: str) 
     for coin in coins:
         content = coin_blocks.get(coin, "Analysis not available for this coin in this run.")
         rec = extract_recommendation(content)
-        label, color, bg = BADGE_STYLES.get(rec, ("⚪ HOLD", "#b45309", "#fef9c3"))
+        label, color, bg = BADGE_STYLES.get(rec, ("🟡 HOLD", "#b45309", "#fef9c3"))
         plain_content = markdown_to_plain(content)
         coin_sections_html += COIN_SECTION_TEMPLATE.format(
             coin=coin,
