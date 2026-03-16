@@ -11,6 +11,10 @@ from pathlib import Path
 
 from config import get_config
 from agent import run as run_agent
+from cli_utils import prompt_for_backend
+
+# Shared state for the backend choice
+SELECTED_BACKEND = "gemini"
 
 # Logging
 LOG_DIR = Path(__file__).parent / "logs"
@@ -29,16 +33,19 @@ logger = logging.getLogger("scheduler")
 
 def job():
     logger.info(f"⏰ Scheduled trigger fired at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-    run_agent()
+    run_agent(backend_override=SELECTED_BACKEND)
 
 
 def main():
+    global SELECTED_BACKEND
     config = get_config()
+    SELECTED_BACKEND = prompt_for_backend(config["AI_BACKEND"])
     run_time = config.get("DAILY_RUN_TIME", "09:00")
 
     logger.info("=" * 60)
     logger.info(f"📅 Crypto AI Scheduler started")
     logger.info(f"   Daily run time : {run_time} (local time)")
+    logger.info(f"   AI Backend     : {SELECTED_BACKEND.upper()}")
     logger.info(f"   Coins tracked  : {', '.join(config['COINS'])}")
     logger.info(f"   Report sent to : {config['RECIPIENT_EMAIL']}")
     logger.info("   Waiting for scheduled time... (Ctrl+C to stop)")
@@ -48,7 +55,7 @@ def main():
 
     # Run immediately on first start so you can verify everything works
     logger.info("▶️  Running immediately on startup for verification...")
-    run_agent()
+    run_agent(backend_override=SELECTED_BACKEND)
     logger.info(f"✅ Startup run complete. Next run scheduled at {run_time} daily.")
 
     while True:

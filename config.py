@@ -28,13 +28,20 @@ def get_coins() -> list[str]:
 def get_config() -> dict:
     """Return all configuration values. Raises if required keys are missing."""
     required = {
-        "NEWS_API_KEY": os.getenv("NEWS_API_KEY"),
-        "GEMINI_API_KEY": os.getenv("GEMINI_API_KEY"),
-        "SMTP_EMAIL": os.getenv("SMTP_EMAIL"),
-        "SMTP_APP_PASSWORD": os.getenv("SMTP_APP_PASSWORD"),
-        "RECIPIENT_EMAIL": os.getenv("RECIPIENT_EMAIL"),
+        "NEWS_API_KEY": os.getenv("NEWS_API_KEY").strip() if os.getenv("NEWS_API_KEY") else None,
+        "GEMINI_API_KEY": os.getenv("GEMINI_API_KEY").strip() if os.getenv("GEMINI_API_KEY") else None,
+        "SMTP_EMAIL": os.getenv("SMTP_EMAIL").strip() if os.getenv("SMTP_EMAIL") else None,
+        "SMTP_APP_PASSWORD": os.getenv("SMTP_APP_PASSWORD").strip() if os.getenv("SMTP_APP_PASSWORD") else None,
+        "RECIPIENT_EMAIL": os.getenv("RECIPIENT_EMAIL").strip() if os.getenv("RECIPIENT_EMAIL") else None,
+        "AI_BACKEND": os.getenv("AI_BACKEND", "gemini").lower().strip(),
     }
-    missing = [k for k, v in required.items() if not v]
+    
+    # Validation logic based on backend
+    if required["AI_BACKEND"] == "gemini":
+        if not required["GEMINI_API_KEY"]:
+            raise EnvironmentError("Missing GEMINI_API_KEY for gemini backend.")
+    
+    missing = [k for k, v in required.items() if not v and k != "GEMINI_API_KEY"] # GEMINI_API_KEY checked separately
     if missing:
         raise EnvironmentError(
             f"Missing required environment variables: {', '.join(missing)}\n"
@@ -44,6 +51,8 @@ def get_config() -> dict:
         **required,
         "DAILY_RUN_TIME": os.getenv("DAILY_RUN_TIME", "09:00"),
         "COINS": get_coins(),
+        "OLLAMA_MODEL": os.getenv("OLLAMA_MODEL", "llama3.2"),
+        "OLLAMA_BASE_URL": os.getenv("OLLAMA_BASE_URL", "http://localhost:11434"),
     }
 
 

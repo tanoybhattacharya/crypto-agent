@@ -11,6 +11,7 @@ from config import get_config
 from news_fetcher import fetch_news
 from ai_analyzer import analyze
 from email_sender import send_email
+from cli_utils import prompt_for_backend
 
 # ── Logging setup ─────────────────────────────────────────────────────────────
 LOG_DIR = Path(__file__).parent / "logs"
@@ -28,7 +29,7 @@ logging.basicConfig(
 logger = logging.getLogger("agent")
 
 
-def run():
+def run(backend_override: str | None = None):
     """Execute the full daily crypto recommendation pipeline."""
     start = datetime.now()
     logger.info("=" * 60)
@@ -38,7 +39,9 @@ def run():
     # 1. Load configuration
     try:
         config = get_config()
-        logger.info(f"✅ Config loaded | Coins: {', '.join(config['COINS'])} | Recipient: {config['RECIPIENT_EMAIL']}")
+        if backend_override:
+            config["AI_BACKEND"] = backend_override
+        logger.info(f"✅ Config loaded | Backend: {config['AI_BACKEND'].upper()} | Coins: {', '.join(config['COINS'])}")
     except (FileNotFoundError, EnvironmentError) as e:
         logger.error(f"❌ Configuration error: {e}")
         return False
@@ -50,8 +53,8 @@ def run():
         logger.info(f"   {coin}: {len(articles)} article(s) found")
 
     # 3. AI analysis
-    logger.info("🤖 Step 2/3 — Generating AI recommendations via Gemini...")
-    recommendation = analyze(news_data, config["GEMINI_API_KEY"])
+    logger.info(f"🤖 Step 2/3 — Generating AI recommendations via {config['AI_BACKEND'].upper()}...")
+    recommendation = analyze(news_data, config)
     logger.info(f"   Recommendation length: {len(recommendation)} chars")
 
     # 4. Send email
@@ -74,5 +77,11 @@ def run():
 
 
 if __name__ == "__main__":
-    success = run()
-    sys.exit(0 if success else 1)
+    try:
+        cfg = get_config()
+        selected_backend = prompt_for_backend(cfg["AI_BACKEND"])
+        success = run(backend_override=selected_backend)
+        sys.exit(0 if success else 1)
+    except Exception as e:
+        print(f"❌ Error during startup: {e}")
+        sys.exit(1)
